@@ -13,3 +13,6 @@
 [submodule "sdm845Pkg/Library/SimpleInit"]
 	path = sdm845Pkg/Library/SimpleInit
 	url = https://github.com/BigfootACA/simple-init.git
+[submodule "sdm845Pkg/Library/droidboot"]
+	path = sdm845Pkg/Library/droidboot
+	url = https://github.com/Android-Boot-Manager/droidboot_gui.git
