@@ -744,18 +744,13 @@ PlatformBootManagerAfterConsole (
   //
     PlatformRegisterFvBootOption (
     &gUefiShellFileGuid, L"UEFI Shell", LOAD_OPTION_ACTIVE);
-   
-//
-// Register ABL App
-//	
-//   PlatformRegisterFvBootOption (
-//   &gEfiAblFvNameGuid, L"Android Fastboot App", LOAD_OPTION_ACTIVE);
+
 #ifdef ENABLE_LINUX_SIMPLE_MASS_STORAGE
   //
   // Register Built-in Linux Kernel
   //
   PlatformRegisterFvBootOption(
-      &gLinuxSimpleMassStorageGuid, L"Mass Storage Mode", LOAD_OPTION_ACTIVE);
+      &gLinuxSimpleMassStorageGuid, L"Mass Storage Mode (Linux)", LOAD_OPTION_ACTIVE);
 #endif
 
 #ifdef AB_SLOTS_SUPPORT
