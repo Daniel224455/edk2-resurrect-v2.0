@@ -15,7 +15,7 @@
 !include sdm845Pkg/sdm845Pkg.dsc
 
 [BuildOptions.common]
-  GCC:*_*_AARCH64_CC_FLAGS = -DAB_SLOTS_SUPPORT=1 -DMEMORY_8GB
+  GCC:*_*_AARCH64_CC_FLAGS = -DAB_SLOTS_SUPPORT=1 -DMEMORY_8GB -DENABLE_LINUX_SIMPLE_MASS_STORAGE
 
 [PcdsFixedAtBuild.common]
 
