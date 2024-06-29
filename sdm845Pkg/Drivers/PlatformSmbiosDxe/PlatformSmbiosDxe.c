@@ -29,7 +29,6 @@
 #include <Library/UefiDriverEntryPoint.h>
 #include <Library/UefiLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
-#include <Library/FdtParserLib.h>
 #include <Protocol/Smbios.h>
 
 /***********************************************************************
@@ -844,8 +843,8 @@ SMBIOS_TABLE_TYPE19 mMemArrMapInfoType19 = {
     0, // MemoryArrayHandle; // Should match SMBIOS_TABLE_TYPE16.Handle,
        // initialized at runtime, refer to PhyMemArrayInfoUpdateSmbiosType16()
     1, // PartitionWidth;
-    0, // ExtendedStartingAddress;  // not used
-    0, // ExtendedEndingAddress;    // not used
+    0x080000000, // ExtendedStartingAddress;  // not used
+    0x100000000, // ExtendedEndingAddress;    // not used
 };
 CHAR8 *mMemArrMapInfoType19Strings[] = {NULL};
 
@@ -972,14 +971,6 @@ PlatformSmbiosDriverEntryPoint(
     IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_SMBIOS_HANDLE SmbiosHandle;
-  UINTN Node = 0;
-  UINTN MemoryBase = 0;
-  UINTN MemorySize = 0;
-  VOID *Fdt;
-  CHAR8 *Serial;
-
-  Fdt = GetFdt ();
-  ASSERT(Fdt != NULL);
 
   // TYPE0 BIOS Information
   AsciiSPrint(
@@ -998,14 +989,6 @@ PlatformSmbiosDriverEntryPoint(
   AsciiStrCpyS(
       mSysInfoVersionName, sizeof(mSysInfoVersionName),
       (CHAR8 *)PcdGetPtr(PcdDeviceCodeName));
-  Serial = param_get_android_serial_number (fdt_get_cmdline_items (Fdt, NULL));
-  if (Serial != NULL) {
-    DEBUG((EFI_D_INFO, "Android Serial Number: %a\n", Serial));
-    ZeroMem(mSysInfoSerial, sizeof(mSysInfoSerial));
-    AsciiStrCpyS(
-        mSysInfoSerial, sizeof(mSysInfoSerial),
-        Serial);
-  }
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mSysInfoType1, mSysInfoType1Strings, NULL);
 
@@ -1088,15 +1071,12 @@ PlatformSmbiosDriverEntryPoint(
       NULL);
 
   // TYPE19 Memory Array Map Information
-
-  while (fdt_get_memory(Fdt, (int)Node, (uint64_t*)&MemoryBase, (uint64_t*)&MemorySize)) {
-    mMemArrMapInfoType19.StartingAddress = MemoryBase;
-    mMemArrMapInfoType19.EndingAddress = MemoryBase + MemorySize;
-    LogSmbiosData(
-        (EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19,
-        mMemArrMapInfoType19Strings, NULL);
-    Node++;
-  }
+  mMemArrMapInfoType19.ExtendedStartingAddress = PcdGet64(PcdSystemMemoryBase);
+  mMemArrMapInfoType19.ExtendedEndingAddress =
+      PcdGet64(PcdSystemMemoryBase) + PcdGet64(PcdSystemMemorySize);
+  LogSmbiosData(
+      (EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19,
+      mMemArrMapInfoType19Strings, NULL);
 
   // TYPE32 Boot Information
   LogSmbiosData(
