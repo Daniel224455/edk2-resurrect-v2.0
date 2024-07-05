@@ -9,4 +9,4 @@
   VERSION_STRING                  = 1.0
 
 [Binaries.AARCH64]
-   PE32|UsbfnMsdApp.efi|RELEASE
+   PE32|LinuxSimpleMassStorage.efi|RELEASE
