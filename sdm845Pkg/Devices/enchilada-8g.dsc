@@ -16,8 +16,8 @@
 
 [PcdsFixedAtBuild.common]
 
-  gsdm845PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gsdm845PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2280
+  gsdm845PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2280
+  gsdm845PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1080
 
   gsdm845PkgTokenSpaceGuid.PcdDeviceVendor|"OnePlus"
   gsdm845PkgTokenSpaceGuid.PcdDeviceProduct|"6"
