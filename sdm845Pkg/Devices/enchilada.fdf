@@ -548,7 +548,7 @@ APRIORI DXE {
   # INF RuleOverride = ACPITABLE sdm845Pkg/AcpiTables/AcpiTables.inf
 
   FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {   
-    SECTION RAW = sdm845Pkg/AcpiOp6/Sdm845/DBG2.aml
+    #SECTION RAW = sdm845Pkg/AcpiOp6/Sdm845/DBG2.aml
     SECTION RAW = sdm845Pkg/AcpiOp6/DSDT_enchilada.aml
     SECTION RAW = sdm845Pkg/AcpiOp6/Sdm845/MADT.aml
     SECTION RAW = sdm845Pkg/AcpiOp6/Sdm845/FADT.aml
