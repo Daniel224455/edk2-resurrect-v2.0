@@ -80,6 +80,7 @@
   gLinuxSimpleMassStorageGuid
   gSwitchSlotsAppFileGuid
   gUFPGuid
+  gUsbfnMsdAppGuid
 
 [Protocols]
   gEdkiiNonDiscoverableDeviceProtocolGuid
