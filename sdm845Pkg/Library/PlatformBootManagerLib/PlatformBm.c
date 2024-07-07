@@ -745,6 +745,12 @@ PlatformBootManagerAfterConsole (
     PlatformRegisterFvBootOption (
     &gUefiShellFileGuid, L"UEFI Shell", LOAD_OPTION_ACTIVE);
 
+  //
+  // Register UnifiedFlashingPlatform App
+  //
+    PlatformRegisterFvBootOption(
+    &gUFPGuid, L"FFU Flashing Mode", LOAD_OPTION_ACTIVE);
+
 #ifdef ENABLE_LINUX_SIMPLE_MASS_STORAGE
   //
   // Register Built-in Linux Kernel
