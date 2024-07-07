@@ -583,7 +583,15 @@ APRIORI DXE {
   INF ShellPkg/DynamicCommand/TftpDynamicCommand/TftpDynamicCommand.inf
 !endif #$(INCLUDE_TFTP_COMMAND)
 
-  INF sdm845Pkg/Binary/845/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
+  #
+  # Implementation of MassStorageMode
+  #
+  INF sdm845Pkg/Application/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
+
+  #
+  # UnifiedFlashingPlatform App
+  #
+  INF sdm845Pkg/Application/UFP/ufpdevicefw.inf
 
   #
   # Bds
