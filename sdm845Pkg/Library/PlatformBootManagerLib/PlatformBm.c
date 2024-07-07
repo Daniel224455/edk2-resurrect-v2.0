@@ -764,7 +764,7 @@ PlatformBootManagerAfterConsole (
   // Register Built-in Linux Kernel
   //
   PlatformRegisterFvBootOption(
-      &gUsbfnMsdApp, L"Qualcomm Mass Storage Mode", LOAD_OPTION_ACTIVE);
+      &gUsbfnMsdAppGuid, L"Qualcomm Mass Storage Mode", LOAD_OPTION_ACTIVE);
 #endif
    
 #ifdef AB_SLOTS_SUPPORT
