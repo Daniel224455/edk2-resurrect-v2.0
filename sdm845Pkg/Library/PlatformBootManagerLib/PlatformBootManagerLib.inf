@@ -79,6 +79,7 @@
   gUefiShellFileGuid
   gLinuxSimpleMassStorageGuid
   gSwitchSlotsAppFileGuid
+  gUFPGuid
 
 [Protocols]
   gEdkiiNonDiscoverableDeviceProtocolGuid
