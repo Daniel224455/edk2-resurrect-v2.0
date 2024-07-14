@@ -340,6 +340,7 @@
   ShellPkg/DynamicCommand/TftpDynamicCommand/TftpDynamicCommand.inf
 !endif #$(INCLUDE_TFTP_COMMAND)
 
+  # PlatformBootManager Apps
   sdm845Pkg/Application/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
   sdm845Pkg/Application/UFP/ufpdevicefw.inf
   sdm845Pkg/Application/UsbfnMsdApp/UsbfnMsdApp.inf
