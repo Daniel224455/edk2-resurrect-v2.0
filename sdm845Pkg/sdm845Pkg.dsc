@@ -1,4 +1,3 @@
-#
 #  Copyright (c) 2018, Linaro Limited. All rights reserved.
 #
 #  This program and the accompanying materials
@@ -315,9 +314,7 @@
       NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
       PcdLib|MdePkg/Library/DxePcdLib/DxePcdLib.inf
   }
-!ifdef $(ENABLE_BOOTLOGO)
   sdm845Pkg/Drivers/LogoDxe/LogoDxe.inf
-!endif $(ENABLE_BOOTLOGO)
 
   ShellPkg/Application/Shell/Shell.inf {
     <LibraryClasses>
