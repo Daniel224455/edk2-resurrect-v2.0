@@ -32,13 +32,13 @@
   __DATE__"\0"                         /* BiosReleaseDate */
 
 #define TYPE1_STRINGS                                   \
-  "TianoCore\0"                       /* Manufacturer */ \
+  "ResurrectEdk2\0"                       /* Manufacturer */ \
   "Snapdragon 845 Device\0"           /* Product Name */ \
-  "v1488\0"                          /* Version */      \
+  "v2.0rc2\0"                          /* Version */      \
   "                    \0"           /* 20 character buffer */
 
 #define TYPE2_STRINGS                                     \
-  "TianoCore\0"                        /* Manufacturer */   \
+  "ResurrectEdk2\0"                        /* Manufacturer */   \
   "Snapdragon 845 Device\0"            /* Product Name */   \
   "R0\0"                             /* Version */        \
   "Serial Not Set\0"                 /* Serial */         \
@@ -48,7 +48,7 @@
 
 #define TYPE3_STRINGS                                   \
   "ARM LTD\0"                        /* Manufacturer */ \
-  "Version 1488\0"                           /* Version */      \
+  "None\0"                           /* Version */      \
   "Serial Not Set\0"                 /* Serial  */
 
 #define TYPE4_STRINGS                                               \
