@@ -592,9 +592,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF MdeModulePkg/Application/UiApp/UiApp.inf
-!ifdef $(ENABLE_BOOTLOGO)
   INF sdm845Pkg/Drivers/LogoDxe/LogoDxe.inf
-!endif $(ENABLE_BOOTLOGO)
 
   #
   # Implementation of MassStorageMode
