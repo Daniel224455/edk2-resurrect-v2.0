@@ -105,7 +105,10 @@ MemoryPeim(IN EFI_PHYSICAL_ADDRESS UefiMemoryBase, IN UINT64 UefiMemorySize)
   UINT8 MemGB = 4;
 #endif
 
+  DEBUG ((EFI_D_WARN, "FINDING MEMORY CONFIG...\n"));
   DEBUG((EFI_D_INFO, "CONFIG FOUND: %d GiB\n", MemGB));
+  DEBUG ((EFI_D_WARN, "MEMORY SET, START BOOTING EDK2...\n"));
+  DEBUG ((EFI_D_WARN, "START PRINTING LOGS FROM HERE.\n"));
 
 #ifdef MEMORY_10GB
   // Run through each memory descriptor
