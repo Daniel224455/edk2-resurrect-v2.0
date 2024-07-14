@@ -222,6 +222,7 @@ do	if [ -n "${i}" ]&&[ -d "${i}/Platform" ]
 done
 [ -n "${_EDK2}" ]||_error "EDK2 not found, please see README.md"
 [ -n "${_EDK2_PLATFORMS}" ]||_error "EDK2 Platforms not found, please see README.md"
+cp ${PWD}/assets/PrePi.c ${PWD}/edk2/ArmPlatformPkg/PrePi
 echo "EDK2 Path: ${_EDK2}"
 echo "EDK2_PLATFORMS Path: ${_EDK2_PLATFORMS}"
 export CROSS_COMPILE="${CROSS_COMPILE:-aarch64-linux-gnu-}"
