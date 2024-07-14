@@ -25,7 +25,7 @@
   FILE_GUID                       = 1C207232-4086-9BE7-DB16-159D66AB466A                                    
   MODULE_TYPE                     = UEFI_APPLICATION
   VERSION_STRING                  = 1.0
-  ENTRY_POINT                     = UsbMsdAppMain
+  ENTRY_POINT                     = EfiEntry
 
 [Binaries.AARCH64]
    PE32|UsbfnMsdApp.efi|RELEASE
