@@ -12,7 +12,7 @@
 !include sdm845Pkg/sdm845Pkg.dsc
 
 [BuildOptions.common]
-  GCC:*_*_AARCH64_CC_FLAGS = -DMEMORY_8GB -DQUALCOMM_MSM
+  GCC:*_*_AARCH64_CC_FLAGS = -DMEMORY_8GB -DENABLE_LINUX_SIMPLE_MASS_STORAGE
 
 [PcdsFixedAtBuild.common]
 
