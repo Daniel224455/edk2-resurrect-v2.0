@@ -31,9 +31,7 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   FileExplorerLib|MdeModulePkg/Library/FileExplorerLib/FileExplorerLib.inf
   DxeServicesLib|MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
-!ifdef $(ENABLE_BOOTLOGO)
   BootLogoLib|MdeModulePkg/Library/BootLogoLib/BootLogoLib.inf
-!endif $(ENABLE_BOOTLOGO)
 
 !if $(USE_UART) == 1
   SerialPortLib|sdm845Pkg/Library/QcomGeniSerialPortLib/QcomGeniSerialPortLib.inf
