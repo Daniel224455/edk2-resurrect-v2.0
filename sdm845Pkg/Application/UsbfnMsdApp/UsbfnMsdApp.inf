@@ -27,8 +27,5 @@
   VERSION_STRING                  = 1.0
   ENTRY_POINT                     = UsbMsdAppMain
 
-[Binaries.Arm]
-   PE32|UsbfnMsdApp.efi|RELEASE
-
 [Binaries.AARCH64]
    PE32|UsbfnMsdApp.efi|RELEASE
