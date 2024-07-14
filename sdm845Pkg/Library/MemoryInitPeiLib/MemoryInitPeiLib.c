@@ -105,7 +105,7 @@ MemoryPeim(IN EFI_PHYSICAL_ADDRESS UefiMemoryBase, IN UINT64 UefiMemorySize)
   UINT8 MemGB = 4;
 #endif
 
-  DEBUG((EFI_D_INFO, "Select Config: %d GiB\n", MemGB));
+  DEBUG((EFI_D_INFO, "CONFIG FOUND: %d GiB\n", MemGB));
 
 #ifdef MEMORY_10GB
   // Run through each memory descriptor
