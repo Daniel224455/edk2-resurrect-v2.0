@@ -203,7 +203,6 @@ then	set -e
 		pushd sdm845Pkg/Library/SimpleInit
 		git submodule init;git submodule update
 		popd
-                cp ${PWD}/assets/header.makefile ${PWD}/edk2/BaseTools/Source/C/Makefiles
 	fi
 	set +e
 fi
@@ -221,6 +220,7 @@ do	if [ -n "${i}" ]&&[ -d "${i}/Platform" ]
 done
 [ -n "${_EDK2}" ]||_error "EDK2 not found, please see README.md"
 [ -n "${_EDK2_PLATFORMS}" ]||_error "EDK2 Platforms not found, please see README.md"
+cp ${PWD}/assets/header.makefile ${PWD}/edk2/BaseTools/Source/C/Makefiles
 cp ${PWD}/assets/PrePi.c ${PWD}/edk2/ArmPlatformPkg/PrePi
 echo "EDK2 Path: ${_EDK2}"
 echo "EDK2_PLATFORMS Path: ${_EDK2_PLATFORMS}"
