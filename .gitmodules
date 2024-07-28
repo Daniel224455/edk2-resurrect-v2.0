@@ -10,3 +10,6 @@
 [submodule "sdm845Pkg/Library/SimpleInit"]
 	path = sdm845Pkg/Library/SimpleInit
 	url = https://github.com/BigfootACA/simple-init.git
+[submodule "sdm845Pkg/AcpiTables"]
+	path = sdm845Pkg/AcpiTables
+	url = https://git.renegade-project.org/edk2-sdm845-acpi.git
