@@ -342,7 +342,6 @@
   # PlatformBootManager Apps
   sdm845Pkg/Application/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
   sdm845Pkg/Application/UFP/ufpdevicefw.inf
-  sdm845Pkg/Application/UsbfnMsdApp/UsbfnMsdApp.inf
 
   sdm845Pkg/Drivers/SynapticsTouchDxe/SynapticsTouchDevice.inf
   sdm845Pkg/Drivers/SynapticsTouchDxe/SynapticsTouchDxe.inf
