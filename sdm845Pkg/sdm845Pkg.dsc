@@ -315,6 +315,7 @@
       PcdLib|MdePkg/Library/DxePcdLib/DxePcdLib.inf
   }
   sdm845Pkg/Drivers/LogoDxe/LogoDxe.inf
+  sdm845Pkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
 
   ShellPkg/Application/Shell/Shell.inf {
     <LibraryClasses>
