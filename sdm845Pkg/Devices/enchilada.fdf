@@ -593,6 +593,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF MdeModulePkg/Application/UiApp/UiApp.inf
   INF sdm845Pkg/Drivers/LogoDxe/LogoDxe.inf
+  INF sdm845Pkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
 
   #
   # Implementation of MassStorageMode
