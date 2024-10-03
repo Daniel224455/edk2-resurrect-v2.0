@@ -33,7 +33,7 @@ For Ubuntu 20.04:
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install build-essential uuid-dev iasl git nasm gcc-aarch64-linux-gnu python3-distutils python3-pil python3-git gettext
+sudo apt install build-essential uuid-dev iasl git nasm gcc-aarch64-linux-gnu python3-distutils python3-pil python3-git gettext fastboot
 ```
 
 ## Building
