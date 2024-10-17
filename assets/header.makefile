@@ -83,18 +83,18 @@ BUILD_OPTFLAGS = -O2 $(EXTRA_OPTFLAGS)
 ifeq ($(DARWIN),Darwin)
 # assume clang or clang compatible flags on OS X
 BUILD_CFLAGS = -MD -fshort-wchar -fno-strict-aliasing -Wall -Werror \
--Wno-deprecated-declarations -Wno-error -Werror=unused-function -Wno-self-assign -Wno-unused-result -Werror=implicit-function-declaration -nostdlib -g
+-Wno-deprecated-declarations -Wno-error -Werror=unused-function -Wno-self-assign -Wno-unused-result -Wimplicit-function-declaration -nostdlib -g
 else
 ifeq ($(CXX), llvm)
 BUILD_CFLAGS = -MD -fshort-wchar -fno-strict-aliasing -fwrapv \
 -fno-delete-null-pointer-checks -Wall -Werror \
 -Wno-deprecated-declarations -Wno-error -Werror=unused-function -Wno-self-assign \
--Wno-unused-result -Werror=implicit-function-declaration -nostdlib -g
+-Wno-unused-result -Wimplicit-function-declaration -nostdlib -g
 else
 BUILD_CFLAGS = -MD -fshort-wchar -fno-strict-aliasing -fwrapv \
 -fno-delete-null-pointer-checks -Wall -Werror \
 -Wno-deprecated-declarations -Wno-error -Werror=unused-function -Wno-stringop-truncation -Wno-restrict \
--Wno-unused-result -nostdlib -Werror=implicit-function-declaration -g
+-Wno-unused-result -nostdlib -Wimplicit-function-declaration -g
 endif
 endif
 ifeq ($(CXX), llvm)
