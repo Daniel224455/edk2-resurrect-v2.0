@@ -689,7 +689,7 @@ VOID EFIAPI PlatformBootManagerAfterConsole(VOID)
   // Register Built-in Linux Kernel
   //
   PlatformRegisterFvBootOption(
-      &gLinuxSimpleMassStorageGuid, L"USB Attached SCSI (UAS) Storage", LOAD_OPTION_ACTIVE);
+      &gLinuxSimpleMassStorageGuid, L"Mass Storage Mode", LOAD_OPTION_ACTIVE);
 #endif
 
 #ifdef AB_SLOTS_SUPPORT
