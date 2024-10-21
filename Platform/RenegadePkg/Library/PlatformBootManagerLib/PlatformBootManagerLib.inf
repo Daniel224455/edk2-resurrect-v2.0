@@ -82,6 +82,7 @@
   gLinuxSimpleMassStorageGuid
   gSwitchSlotsAppFileGuid
   gSimpleInitFileGuid
+  gUFPGuid
 
 [Protocols]
   gEdkiiNonDiscoverableDeviceProtocolGuid

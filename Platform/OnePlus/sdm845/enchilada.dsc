@@ -1,5 +1,5 @@
 [Defines]
-  VENDOR_NAME                    = Oneplus
+  VENDOR_NAME                    = OnePlus
   PLATFORM_NAME                  = enchilada
   PLATFORM_GUID                  = 28f1a3bf-193a-47e3-a7b9-5a435eaab2ee
   PLATFORM_VERSION               = 0.1
@@ -9,10 +9,7 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = Platform/Qualcomm/sdm845/sdm845.fdf
-  DEVICE_DXE_FV_COMPONENTS       = Platform/Oneplus/sdm845/enchilada.fdf.inc
-
-  # Enable A/B Slot Environment
-  AB_SLOTS_SUPPORT               = TRUE
+  DEVICE_DXE_FV_COMPONENTS       = Platform/OnePlus/sdm845/enchilada.fdf.inc
 
 !include Platform/Qualcomm/sdm845/sdm845.dsc
 
@@ -24,9 +21,9 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2280
 
-  gRenegadePkgTokenSpaceGuid.PcdDeviceVendor|"Oneplus"
-  gRenegadePkgTokenSpaceGuid.PcdDeviceProduct|"6"
-  gRenegadePkgTokenSpaceGuid.PcdDeviceCodeName|"enchilada"
-
   # Simple Init
-  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|440
+  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|320
+
+  gRenegadePkgTokenSpaceGuid.PcdDeviceVendor|"OnePlus"
+  gRenegadePkgTokenSpaceGuid.PcdDeviceProduct|"OnePlus 6"
+  gRenegadePkgTokenSpaceGuid.PcdDeviceCodeName|"enchilada"

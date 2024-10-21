@@ -1,54 +1,7 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190703 (32-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of dsdts.aml, Wed Nov  6 17:28:39 2019
- *
- * Original Table Header:
- *     Signature        "DSDT"
- *     Length           0x00043459 (275545)
- *     Revision         0x02
- *     Checksum         0x03
- *     OEM ID           "QCOMM "
- *     OEM Table ID     "SDM850 "
- *     OEM Revision     0x00000003 (3)
- *     Compiler ID      "MSFT"
- *     Compiler Version 0x05000000 (83886080)
- */
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 {
-    /*
-     * iASL Warning: There were 2 external control methods found during
-     * disassembly, but only 0 were resolved (2 unresolved). Additional
-     * ACPI tables may be required to properly disassemble the code. This
-     * resulting disassembler output file may not compile because the
-     * disassembler did not know how many arguments to assign to the
-     * unresolved methods. Note: SSDTs can be dynamically loaded at
-     * runtime and may or may not be available via the host OS.
-     *
-     * To specify the tables needed to resolve external control method
-     * references, the -e option can be used to specify the filenames.
-     * Example iASL invocations:
-     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
-     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
-     *     iasl -e ssdt*.aml -d dsdt.aml
-     *
-     * In addition, the -fe option can be used to specify a file containing
-     * control method external declarations with the associated method
-     * argument counts. Each line of the file must be of the form:
-     *     External (<method pathname>, MethodObj, <argument count>)
-     * Invocation:
-     *     iasl -fe refs.txt -d dsdt.aml
-     *
-     * The following methods were unresolved and many not compile properly
-     * because the disassembler had to guess at the number of arguments
-     * required for each:
-     */
-    External (_SB_.PWPR, MethodObj)    // Warning: Unknown method, guessing 2 arguments
-    External (_SB_.PWRR, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (_SB_.PWPR, MethodObj)    
+    External (_SB_.PWRR, MethodObj)    
     External (_SB_.TZ98, UnknownObj)
     External (_SB_.TZ98._PSV, IntObj)
     External (_SB_.TZ98._TC1, IntObj)
@@ -63,53 +16,47 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
     Scope (\_SB)
     {
-        Name (PSUB, "RENEGA0E")
-        Name (SOID, 0xffffffff)
-        Name (SIDS, "SDM850")
-        Name (SIDV, 0xffffffff)
-        Name (SVMJ, 0xffff)
-        Name (SVMI, 0xffff)
-        Name (SDFE, 0xffff)
-        Name (SFES, "899800000000000")
-        Name (SIDM, 0xfffffffff)
-        Name (SOSN, 0xaaaaaaaabbbbbbbb)
-        Name (RMTB, 0xaaaaaaaa)
-        Name (RMTX, 0xbbbbbbbb)
-        Name (RFMB, 0xcccccccc)
-        Name (RFMS, 0xdddddddd)
-        Name (RFAB, 0xeeeeeeee)
-        Name (RFAS, 0x77777777)        
-        Name (TCMA, 0xDEADBEEF)
-        Name (TCML, 0xBEEFDEAD)
-        Name (PRSI, Buffer() {0x53, 0x4F, 0x53, 0x49, 0x0E, 0x10, 0x72, 0x00, 0x86, 0x00, 0x00, 0x00, 0x00,0x0B})
-        Name (MDID, 0x00000003)
-        Device (UFS0)
+        Name(PSUB, "MTP00850")
+        Name(SOID, 0xffffffff)
+        Name(SIDS, "899800000000000")
+        Name(SIDV, 0xffffffff)
+        Name(SVMJ, 0xffff)
+        Name(SVMI, 0xffff)
+        Name(SDFE, 0xffff)
+        Name(SFES, "899800000000000")
+        Name(SIDM, 0xfffffffff)
+        Name(SOSN, 0xaaaaaaaabbbbbbbb)
+        Name(RMTB, 0xaaaaaaaa)
+        Name(RMTX, 0xbbbbbbbb)
+        Name(RFMB, 0xcccccccc)
+        Name(RFMS, 0xdddddddd)
+        Name(RFAB, 0xeeeeeeee)
+        Name(RFAS, 0x77777777)
+        Name(TPMA, 0x11111111)
+        Name(TDTV, 0x6654504d)
+        Name(TCMA, 0xdeadbeef)
+        Name(TCML, 0xbeefdead)
+        Name(SOSI, 0xdeadbeefffffffff)
+        Device(UFS0)
         {
-            Name (_DEP, Package (One)  // _DEP: Dependencies
+            Name(_DEP, Package(One)
             {
-                \_SB.PEP0
+                \_SB_.PEP0
             })
-            Name (_HID, "QCOM24A5")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
-            Name (_CID, "ACPIQCOM24A5")  // _CID: Compatible ID
-            Name (_UID, Zero)  // _UID: Unique ID
-            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            Name(_HID, "QCOM24A5")
+            Alias(\_SB_.PSUB, _SUB)
+            Name(_CID, "ACPIQCOM24A5")
+            Name(_UID, Zero)
+            Name(_CCA, Zero)
+            Method(_CRS, 0x0, NotSerialized)
             {
-                Name (RBUF, ResourceTemplate ()
+                Name(RBUF, Buffer(0x17)
                 {
-                    Memory32Fixed (ReadWrite,
-                        0x01D84000,         // Address Base
-                        0x00014000,         // Address Length
-                        )
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x00000129,
-                    }
+	0x86, 0x09, 0x00, 0x01, 0x00, 0x40, 0xd8, 0x01, 0x00, 0x40, 0x01, 0x00,
+	0x89, 0x06, 0x00, 0x01, 0x01, 0x29, 0x01, 0x00, 0x00, 0x79, 0x00
                 })
-                Return (RBUF) /* \_SB_.UFS0._CRS.RBUF */
+                Return(RBUF)
             }
-
             Device (DEV0)
             {
                 Method (_ADR, 0, NotSerialized)  // _ADR: Address
@@ -123,54 +70,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 }
             }
         }
-
-        Device (SDC2)
+        Device(SDC2)
         {
-            Name (_DEP, Package (0x02)  // _DEP: Dependencies
+            Name(_DEP, Package(0x2)
             {
-                \_SB.PEP0, 
-                \_SB.GIO0
+                \_SB_.PEP0,
+                \_SB_.GIO0
             })
-            Name (_HID, "QCOM2466")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
-            Name (_CID, "ACPIQCOM2466")  // _CID: Compatible ID
-            Name (_UID, One)  // _UID: Unique ID
-            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            Name(_HID, "QCOM2466")
+            Alias(\_SB_.PSUB, _SUB)
+            Name(_CID, "ACPIQCOM2466")
+            Name(_UID, One)
+            Name(_CCA, Zero)
+            Method(_CRS, 0x0, NotSerialized)
             {
-                Name (RBUF, ResourceTemplate ()
+                Name(RBUF, Buffer(0x5d)
                 {
-                    Memory32Fixed (ReadWrite,
-                        0x08804000,         // Address Base
-                        0x00001000,         // Address Length
-                        )
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000000EC,
-                    }
-                    GpioInt (Edge, ActiveBoth, SharedAndWake, PullUp, 0x7530,
-                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            0x00C0
-                        }
-                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
-                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            0x007E
-                        }
+	0x86, 0x09, 0x00, 0x01, 0x00, 0x40, 0x80, 0x08, 0x00, 0x10, 0x00, 0x00,
+	0x89, 0x06, 0x00, 0x01, 0x01, 0xec, 0x00, 0x00, 0x00, 0x8c, 0x20, 0x00,
+	0x01, 0x00, 0x01, 0x00, 0x1d, 0x00, 0x01, 0x00, 0x00, 0x30, 0x75, 0x17,
+	0x00, 0x00, 0x19, 0x00, 0x23, 0x00, 0x00, 0x00, 0xc0, 0x00, 0x5c, 0x5f,
+	0x53, 0x42, 0x2e, 0x47, 0x49, 0x4f, 0x30, 0x00, 0x8c, 0x20, 0x00, 0x01,
+	0x01, 0x01, 0x00, 0x08, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x17, 0x00,
+	0x00, 0x19, 0x00, 0x23, 0x00, 0x00, 0x00, 0x7e, 0x00, 0x5c, 0x5f, 0x53,
+	0x42, 0x2e, 0x47, 0x49, 0x4f, 0x30, 0x00, 0x79, 0x00
                 })
-                Return (RBUF) /* \_SB_.SDC2._CRS.RBUF */
+                Return(RBUF)
             }
-
-            Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
+            Method(_DIS, 0x0, NotSerialized)
             {
             }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            Method(_STA, 0x0, NotSerialized)
             {
-                Return (0x0F)
+                Return(0xf)
             }
         }
 
@@ -26232,600 +26164,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 Package (0x05)
                 {
                     "DEVICE", 
-                    "\\_SB.UFS0", 
-                    Package (0x07)
-                    {
-                        "COMPONENT", 
-                        Zero, 
-                        Package (0x05)
-                        {
-                            "FSTATE", 
-                            Zero, 
-                            Package (0x02)
-                            {
-                                "PSTATE_ADJUST", 
-                                Package (0x02)
-                                {
-                                    Zero, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PSTATE_ADJUST", 
-                                Package (0x02)
-                                {
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PSTATE_ADJUST", 
-                                Package (0x02)
-                                {
-                                    0x02, 
-                                    Zero
-                                }
-                            }
-                        }, 
-
-                        Package (0x05)
-                        {
-                            "FSTATE", 
-                            One, 
-                            Package (0x02)
-                            {
-                                "PSTATE_ADJUST", 
-                                Package (0x02)
-                                {
-                                    0x02, 
-                                    One
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PSTATE_ADJUST", 
-                                Package (0x02)
-                                {
-                                    One, 
-                                    One
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "PSTATE_ADJUST", 
-                                Package (0x02)
-                                {
-                                    Zero, 
-                                    One
-                                }
-                            }
-                        }, 
-
-                        Package (0x04)
-                        {
-                            "PSTATE_SET", 
-                            Zero, 
-                            Package (0x03)
-                            {
-                                "PSTATE", 
-                                Zero, 
-                                Package (0x02)
-                                {
-                                    "FOOTSWITCH", 
-                                    Package (0x02)
-                                    {
-                                        "ufs_phy_gdsc", 
-                                        One
-                                    }
-                                }
-                            }, 
-
-                            Package (0x03)
-                            {
-                                "PSTATE", 
-                                One, 
-                                Package (0x02)
-                                {
-                                    "FOOTSWITCH", 
-                                    Package (0x02)
-                                    {
-                                        "ufs_phy_gdsc", 
-                                        0x02
-                                    }
-                                }
-                            }
-                        }, 
-
-                        Package (0x04)
-                        {
-                            "PSTATE_SET", 
-                            One, 
-                            Package (0x0C)
-                            {
-                                "PSTATE", 
-                                Zero, 
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x04)
-                                    {
-                                        "gcc_ufs_phy_axi_clk", 
-                                        0x08, 
-                                        0x0BEBC200, 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x04)
-                                    {
-                                        "gcc_ufs_phy_unipro_core_clk", 
-                                        0x08, 
-                                        0x08F0D180, 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x04)
-                                    {
-                                        "gcc_ufs_phy_ice_core_clk", 
-                                        0x08, 
-                                        0x11E1A300, 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_aggre_ufs_phy_axi_clk", 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_ahb_clk", 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_phy_aux_clk", 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_tx_symbol_0_clk", 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_rx_symbol_0_clk", 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_rx_symbol_1_clk", 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_mem_clkref_en", 
-                                        One
-                                    }
-                                }
-                            }, 
-
-                            Package (0x0C)
-                            {
-                                "PSTATE", 
-                                One, 
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_aggre_ufs_phy_axi_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_ahb_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_phy_aux_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_tx_symbol_0_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_rx_symbol_0_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_rx_symbol_1_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_ice_core_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_unipro_core_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_phy_axi_clk", 
-                                        0x02
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "CLOCK", 
-                                    Package (0x02)
-                                    {
-                                        "gcc_ufs_mem_clkref_en", 
-                                        0x02
-                                    }
-                                }
-                            }
-                        }, 
-
-                        Package (0x04)
-                        {
-                            "PSTATE_SET", 
-                            0x02, 
-                            Package (0x04)
-                            {
-                                "PSTATE", 
-                                Zero, 
-                                Package (0x02)
-                                {
-                                    "BUSARB", 
-                                    Package (0x05)
-                                    {
-                                        0x03, 
-                                        "ICBID_MASTER_UFS_MEM", 
-                                        "ICBID_SLAVE_EBI1", 
-                                        0x35A4E900, 
-                                        0x35A4E900
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "BUSARB", 
-                                    Package (0x05)
-                                    {
-                                        0x03, 
-                                        "ICBID_MASTER_APPSS_PROC", 
-                                        "ICBID_SLAVE_UFS_MEM_CFG", 
-                                        0x11D260C0, 
-                                        Zero
-                                    }
-                                }
-                            }, 
-
-                            Package (0x04)
-                            {
-                                "PSTATE", 
-                                One, 
-                                Package (0x02)
-                                {
-                                    "BUSARB", 
-                                    Package (0x05)
-                                    {
-                                        0x03, 
-                                        "ICBID_MASTER_APPSS_PROC", 
-                                        "ICBID_SLAVE_UFS_MEM_CFG", 
-                                        Zero, 
-                                        Zero
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "BUSARB", 
-                                    Package (0x05)
-                                    {
-                                        0x03, 
-                                        "ICBID_MASTER_UFS_MEM", 
-                                        "ICBID_SLAVE_EBI1", 
-                                        Zero, 
-                                        Zero
-                                    }
-                                }
-                            }
-                        }
-                    }, 
-
-                    Package (0x0B)
-                    {
-                        "DSTATE", 
-                        Zero, 
-                        Package (0x02)
-                        {
-                            "PSTATE_ADJUST", 
-                            Package (0x02)
-                            {
-                                0x02, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PSTATE_ADJUST", 
-                            Package (0x02)
-                            {
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO20_A", 
-                                One, 
-                                0x002D2A80, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO2_A", 
-                                One, 
-                                0x00124F80, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_SMPS4_A", 
-                                0x02, 
-                                0x001B7740, 
-                                One, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO26_A", 
-                                One, 
-                                0x00124F80, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO1_A", 
-                                One, 
-                                0x000D6D80, 
-                                One, 
-                                0x07, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "DELAY", 
-                            Package (0x01)
-                            {
-                                0x23
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PSTATE_ADJUST", 
-                            Package (0x02)
-                            {
-                                One, 
-                                Zero
-                            }
-                        }
-                    }, 
-
-                    Package (0x08)
-                    {
-                        "DSTATE", 
-                        0x03, 
-                        Package (0x02)
-                        {
-                            "PSTATE_ADJUST", 
-                            Package (0x02)
-                            {
-                                One, 
-                                One
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO1_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO26_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PMICVREGVOTE", 
-                            Package (0x06)
-                            {
-                                "PPP_RESOURCE_ID_LDO20_A", 
-                                One, 
-                                Zero, 
-                                Zero, 
-                                Zero, 
-                                Zero
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PSTATE_ADJUST", 
-                            Package (0x02)
-                            {
-                                Zero, 
-                                One
-                            }
-                        }, 
-
-                        Package (0x02)
-                        {
-                            "PSTATE_ADJUST", 
-                            Package (0x02)
-                            {
-                                0x02, 
-                                One
-                            }
-                        }
-                    }
-                }, 
-
-                Package (0x05)
-                {
-                    "DEVICE", 
                     "\\_SB.SDC2", 
                     Package (0x09)
                     {
@@ -46979,7 +46317,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             {
                 Name (_ADR, Zero)  // _ADR: Address
                 Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
-				Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+				Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     Name (RBUF, ResourceTemplate ()
@@ -47006,7 +46344,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
 
                 Device (ADCM)
                 {
-					Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+					Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                     Name (_ADR, Zero)  // _ADR: Address
                     Name (_DEP, Package (0x02)  // _DEP: Dependencies
                     {
@@ -47024,7 +46362,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                     Device (AUDD)
                     {
                         Name (_ADR, Zero)  // _ADR: Address
-						Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+						Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                         Name (_DEP, Package (One)  // _DEP: Dependencies
                         {
                             \_SB.SPI9
@@ -47070,13 +46408,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                         Device (MBHC)
                         {
                             Name (_ADR, Zero)  // _ADR: Address
-                            Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+                            Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                         }
 
                         Device (QCRT)
                         {
                             Name (_ADR, One)  // _ADR: Address
-                            Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+                            Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                         }
                     }
                 }
@@ -47285,7 +46623,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 {
                     Name (_HID, "SAM0609")  // _HID: Hardware ID
                     Name (_UID, Zero)  // _UID: Unique ID
-                    Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+                    Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                     Name (_DEP, Package (One)  // _DEP: Dependencies
                     {
                         \_SB.AMSS.QWLN
@@ -59500,7 +58838,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
             {
                 Name (_HID, "SAM0909")  // _HID: Hardware ID
                 Name (_UID, Zero)  // _UID: Unique ID
-                Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+                Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                 Name (_DEP, Package (0x02)  // _DEP: Dependencies
                 {
                     \_SB.GIO0, 
@@ -59619,7 +58957,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM850 ", 0x00000003)
                 Name (_ADR, Zero)  // _ADR: Address
                 Name (_HID, "SAM0603")  // _HID: Hardware ID
                 Name (_CID, "SAM0603")  // _CID: Compatible ID
-                Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+                Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
                 Name (_UID, One)  // _UID: Unique ID
                 Name (_STA, 0x0F)  // _STA: Status
             }
@@ -60676,7 +60014,7 @@ Include("cust_thermal_zones.asl")
         Device (SVBI)
         {
             Name (_HID, "SAMM0901")  // _HID: Hardware ID
-            Name (_SUB, "RENEGA0E")  // _SUB: Subsystem ID
+            Name (_SUB, "MTP00850")  // _SUB: Subsystem ID
         }
 
         Device (TSC1)

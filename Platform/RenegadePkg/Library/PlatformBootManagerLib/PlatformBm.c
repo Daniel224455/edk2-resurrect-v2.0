@@ -678,6 +678,12 @@ VOID EFIAPI PlatformBootManagerAfterConsole(VOID)
   PlatformRegisterFvBootOption(
       &gUefiShellFileGuid, L"UEFI Shell", LOAD_OPTION_ACTIVE);
 
+  //
+  // Register Unified Flashing Platform App
+  //
+  PlatformRegisterFvBootOption(
+      &gUFPGuid, L"Flash FFU", LOAD_OPTION_ACTIVE);
+
 #ifdef ENABLE_LINUX_SIMPLE_MASS_STORAGE
   //
   // Register Built-in Linux Kernel

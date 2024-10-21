@@ -61,8 +61,8 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x20000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Renegade Project"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"$(FIRMWARE_VER)"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Daniel224455"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"$(date '+%Y-%m')"
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorId|0x4D4F4351
@@ -526,3 +526,4 @@
 !endif
 
   Platform/RenegadePkg/Application/Reboot2PayloadApp/Reboot2PayloadApp.inf
+  Platform/RenegadePkg/Application/UFPDeviceFwApp/ufpdevicefw.inf

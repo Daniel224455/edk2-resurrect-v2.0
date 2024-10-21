@@ -200,8 +200,8 @@ READ_LOCK_STATUS   = TRUE
   #
   # Windows kernel patcher
   #
-  INF Platform/RenegadePkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
-  
+  INF Platform/RenegadePkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf  
+
   #
   # Simple Init GUI
   #
@@ -222,6 +222,8 @@ READ_LOCK_STATUS   = TRUE
 
   INF Platform/RenegadePkg/Application/Reboot2PayloadApp/Reboot2PayloadApp.inf
 !endif
+
+  INF Platform/RenegadePkg/Application/UFPDeviceFwApp/ufpdevicefw.inf
 
 # Device specific fdf
 !include $(DEVICE_DXE_FV_COMPONENTS)

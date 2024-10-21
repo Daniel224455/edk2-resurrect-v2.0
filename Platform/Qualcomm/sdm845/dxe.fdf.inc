@@ -104,11 +104,8 @@
     SECTION UI = "XhciDxe"
   }
 
-  FILE DRIVER = 5776232e-082d-4b75-9a0e-fe1d13f7a5d9 {
-    SECTION DXE_DEPEX = Platform/EFI_Binaries/Drivers/sdm845/PmicDxe/PmicDxe.depex
-    SECTION PE32 = Platform/EFI_Binaries/Drivers/sdm845/PmicDxe/PmicDxe.efi
-    SECTION UI = "PmicDxe"
-  }
+  # PmicDxe with PD and Host Mode inside UEFI.
+  INF Silicon/Qualcomm/sdm845/PatchedBinaries/PmicDxe/PmicDxeComp.inf
 
   FILE DRIVER = 11faed4c-b21f-4d88-8e48-c4c28a1e50df {
     SECTION DXE_DEPEX = Platform/EFI_Binaries/Drivers/sdm845/UsbPwrCtrlDxe/UsbPwrCtrlDxe.depex

@@ -117,7 +117,7 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a55 = {
     0,                  // ThreadCount2;
 };
 
-CHAR8 mCpuName[128] = "Qualcomm Snapdragon 845";
+CHAR8 mCpuName[128] = "Qualcomm(R) Snapdragon(TM) 850";
 
 CHAR8 *mProcessorInfoType4Strings[] = {
     "BGA", "Qualcomm", "Not Specified", NULL};
